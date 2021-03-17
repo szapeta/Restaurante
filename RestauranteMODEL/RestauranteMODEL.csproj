@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2A5F11B0-6882-4C17-9C72-29126A350CDA}</ProjectGuid>
+    <ProjectGuid>{B9E95F9C-8F1D-49FD-9D62-A56EADA725A6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RestauranteDATA</RootNamespace>
-    <AssemblyName>RestauranteDATA</AssemblyName>
+    <RootNamespace>RestauranteMODEL</RootNamespace>
+    <AssemblyName>RestauranteMODEL</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,16 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Access.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="Producto\ProductoDB.cs" />
+    <Compile Include="Model\ProductoMDL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RestauranteMODEL\RestauranteMODEL.csproj">
-      <Project>{b9e95f9c-8f1d-49fd-9d62-a56eada725a6}</Project>
-      <Name>RestauranteMODEL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

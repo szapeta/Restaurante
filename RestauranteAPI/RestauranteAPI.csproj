@@ -104,6 +104,16 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RestauranteDATA\RestauranteDATA.csproj">
+      <Project>{2a5f11b0-6882-4c17-9c72-29126a350cda}</Project>
+      <Name>RestauranteDATA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestauranteMODEL\RestauranteMODEL.csproj">
+      <Project>{b9e95f9c-8f1d-49fd-9d62-a56eada725a6}</Project>
+      <Name>RestauranteMODEL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
