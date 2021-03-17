@@ -1,0 +1,19 @@
+﻿body {
+    padding-bottom: 40px;
+}
+
+.mypadding {
+    padding-left: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+footer {
+    background-color: #ca5050;
+    color: white;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
+    padding: 20px;
+}

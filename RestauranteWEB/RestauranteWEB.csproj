@@ -67,9 +67,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\style.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Producto\ProductoLista.aspx" />
+    <Content Include="Producto\ProductoNuevo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\ProductoLista.aspx.cs">
+      <DependentUpon>ProductoLista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Producto\ProductoLista.aspx.designer.cs">
+      <DependentUpon>ProductoLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\ProductoNuevo.aspx.cs">
+      <DependentUpon>ProductoNuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Producto\ProductoNuevo.aspx.designer.cs">
+      <DependentUpon>ProductoNuevo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
