@@ -46,7 +46,7 @@ namespace RestauranteDATA
             return resp;
         }
 
-        public bool AGREGAR_ACTUALIZAR(ref string errores)
+        public bool AGREGAR_ACTUALIZAR(int op, ref string errores)
         {
             bool resp = false;
             try
@@ -55,14 +55,14 @@ namespace RestauranteDATA
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "RA_Producto_AGREGAR_ACTUALIZAR";
                 cmd.Parameters.Add("@pTipoOP", SqlDbType.Int).Value = op;
+                cmd.Parameters.Add("@pIdProducto", SqlDbType.Int).Value = prodModel.idProducto;
                 cmd.Parameters.Add("@pNombre", SqlDbType.VarChar, 50).Value = prodModel.Nombre;
                 cmd.Parameters.Add("@pDescripcion", SqlDbType.VarChar, 200).Value = prodModel.Descripcion;
                 cmd.Parameters.Add("@pPrecio", SqlDbType.Decimal).Value = prodModel.Precio;
                 cmd.Parameters.Add("@pEstado", SqlDbType.Bit).Value = prodModel.Estado;
                 cmd.Parameters.Add("@pDescuento", SqlDbType.Int).Value = prodModel.Descuento;
-                cmd.Parameters.Add("@pFechaCreacion", SqlDbType.DateTime).Value = prodModel.FechaCreacion;
                 cmd.Parameters.Add("@pidCategoria", SqlDbType.Int).Value = prodModel.idCategoria;
-                cmd.Parameters.Add("@pPathImagen", SqlDbType.VarChar).Value = prodModel.PathImagen;
+                cmd.Parameters.Add("@pPathImagen", SqlDbType.VarChar, 200).Value = prodModel.PathImagen;
 
                 resp = Exec(cmd);
                 if (!string.IsNullOrEmpty(strError))

@@ -34,15 +34,42 @@ namespace RestauranteAPI.Controllers
             return "id: "+ id.ToString();
         }
 
-        public HttpResponseMessage PostProducto(string s)
+        public bool PostProducto([FromBody] ProductoMDL objProducto)
         {
-            
-            return null;
+            bool resp = false;
+            int agregar = 1;
+            ProductoMDL objInsertar = objProducto;
+            try
+            {
+                string msg = string.Empty;
+                ProductoDB service = new ProductoDB(objInsertar);
+                resp = service.AGREGAR_ACTUALIZAR(agregar, ref msg);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            return resp;
         }
 
-        public bool PutProducto(int id, string producto)
+        public bool PutProducto([FromBody] ProductoMDL objProducto)
         {
-            return true;
+            bool resp = false;
+            int actualizar = 2;
+            ProductoMDL objInsertar = objProducto;
+            try
+            {
+                string msg = string.Empty;
+                ProductoDB service = new ProductoDB(objInsertar);
+                resp = service.AGREGAR_ACTUALIZAR(actualizar, ref msg);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            return resp;
         }
 
         public bool DeleteProducto(int id) 
