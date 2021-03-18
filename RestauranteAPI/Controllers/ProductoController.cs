@@ -29,9 +29,19 @@ namespace RestauranteAPI.Controllers
             return resultado;
         }
 
-        public string GetProducto(int id)
+        public List<ProductoMDL> GetProducto(int id)
         {
-            return "id: "+ id.ToString();
+            var resultado = new List<ProductoMDL>();
+
+            ProductoDB productodb = new ProductoDB(null);
+            string err = "";
+            DataSet res = productodb.GetFuncionFiltrar(id, ref err);
+
+            if (res != null && res.Tables.Count > 0 && res.Tables[0].Rows.Count > 0)
+            {
+                resultado = res.Tables[0].ToList<ProductoMDL>();
+            }
+            return resultado;
         }
 
         public bool PostProducto([FromBody] ProductoMDL objProducto)
@@ -74,7 +84,20 @@ namespace RestauranteAPI.Controllers
 
         public bool DeleteProducto(int id) 
         {
-            return true;
+            bool resp = false;
+
+            try
+            {
+                string msg = string.Empty;
+                ProductoDB service = new ProductoDB(null);
+                resp = service.Eliminar(id, ref msg);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            return resp;
         }
     }
 }

@@ -46,6 +46,31 @@ namespace RestauranteDATA
             return resp;
         }
 
+        public DataSet GetFuncionFiltrar(int id, ref string mensaje)
+        {
+            DataSet resp = new DataSet();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "RA_Producto_FILTRAR";
+                cmd.Parameters.Add("@pIdProducto", SqlDbType.Int).Value = id;
+                resp = Getds(cmd);
+                if (!string.IsNullOrEmpty(strError))
+                {
+                    throw new Exception(strError);
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+                ProductoDB_err = ex.Message;
+                resp = null;
+                throw;
+            }
+            return resp;
+        }
+
         public bool AGREGAR_ACTUALIZAR(int op, ref string errores)
         {
             bool resp = false;
@@ -80,6 +105,30 @@ namespace RestauranteDATA
             return resp;
         }
 
-        
+        public bool Eliminar(int id, ref string mensaje)
+        {
+            bool resp = false;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "RA_Producto_ELIMINAR";
+                cmd.Parameters.Add("@pIdProducto", SqlDbType.Int).Value = id;
+                resp = Exec(cmd);
+                if (!string.IsNullOrEmpty(strError))
+                {
+                    throw new Exception(strError);
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+                ProductoDB_err = ex.Message;
+                resp = false;
+                throw;
+            }
+            return resp;
+        }
+
     }
 }
